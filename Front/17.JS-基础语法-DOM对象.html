@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+
+        .table{
+            width: 600px;
+            text-align:center;
+            border-collapse: collapse;
+            margin: auto;
+        }
+        th,
+        td {
+        border: 1px solid #000000;
+        text-align: center;
+        }
+        .center{
+            text-align: center;
+        }
+        div{
+            text-align: center;
+            vertical-align: auto;
+        }
+    </style>
+    <script>
+        function fn1(){
+            var h1=document.getElementById("h1")
+            h1.innerHTML="xiaoxiao"}
+    </script>
+</head>
+<body>
+    <h1 id="h1">课程表</h1>
+    <table class="table">
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>分数</th>
+            <th>评语</th>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>张三</td>
+            <td>90</td>
+            <td>很优秀</td>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>张三</td>
+            <td>90</td>
+            <td>很优秀</td>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>张三</td>
+            <td>90</td>
+            <td>很优秀</td>
+        </tr>
+    </table>
+    <br>
+    <div>
+        <input type="button" id="b1" value="改变标题内容" onclick="fn1()" class="center">
+        <input type="button" id="b2" value="改变标题颜色" onclick="fn2()" class="center">
+        <input type="button" id="b3" value="删除最后一个" onclick="fn3()" class="center">
+    </div>
+</body>
+</html> 

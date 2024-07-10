@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="url">
+        {{url}}  
+        <a v-bind:href="url">超链接</a>
+    </div>
+    
+    <script>
+        //创建Vue实例，得到ViewModel
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                message:"Hello message",
+                url:"https://www.baidu.com"
+            },
+            methods: {}
+        });
+
+    </script>
+    
+</body>
+
+</html>
