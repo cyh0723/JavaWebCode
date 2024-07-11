@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../Source/vue.js"></script>
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+    <style>
+        #t1{
+            margin: auto;
+            text-align: center;
+            border-collapse: collapse;
+            width: 800px;
+            border: 1px solid black;
+        }
+        tr,td,th{
+            text-align: center;
+            border: 1px solid black;
+        }
+        div{
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <table id="t1" >
+            <tr>
+                <th>uuid</th>
+                <th>name</th>
+                <th>email</th>
+                <th>avatar</th>
+                <th>gender</th>
+                <th>birthday</th>
+                <th>intro</th>
+                <th>is_admin</th>
+            </tr>
+            <tr v-for="(item, index) in emps">
+                <td>{{emps.uuid}}</td>
+                <td>{{emps.name}}</td>
+                <td>{{emps.email}}</td>
+                <td>{{emps.avatar}}</td>
+                <td>{{emps.gender}}</td>
+                <td>{{emps.birthday}}</td>
+                <td>{{emps.intro}}</td>
+                <td>{{emps.is_admin}}</td>
+            </tr>
+        </table>
+    </div>
+    
+    <script>
+        //创建Vue实例，得到ViewModel
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                emps:[]
+            },
+            methods: {},
+            mounted() {
+               axios.get("https://api.virapi.com/vir_github3922ebh65a57e/demo/visualapi",{
+                headers:{
+                        "APP-Token":"$2a$10$a1HdjpRqHXnjxdWeo1a3feNHeYo8O0Ci5Sl66k/QMEmGEfZ5uJVCm"
+                    }
+               }).then((result)=>{
+                this.emps=result.data.data
+               })
+            },
+        });
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script 
+        src="../node_modules/axios/dist/axios.min.js">      
+    </script>
+</head>
+<body>
+    <input type="button" value="获取数据" onclick="fun1()">
+    <input type="button" value="删除数据" onclick="fun2()">
+
+    <script>
+        function fun1(){
+            //通过axios发布异步请求get
+           axios({
+            method:'GET',
+            url:"https://api.virapi.com/vir_github3922ebh65a57e/demo/visualapi",
+            headers:{
+                "APP-Token":"$2a$10$a1HdjpRqHXnjxdWeo1a3feNHeYo8O0Ci5Sl66k/QMEmGEfZ5uJVCm"
+            }
+           }).then(function(result){
+            console.log(result.data)
+           })
+        }
+
+        function fun2(){
+            axios.post(
+                "https://api.virapi.com/vir_github3922ebh65a57e/demo/comment",
+                {
+                    "id":"123",
+                    "content":"nihao"
+                },
+                {
+                    headers:{
+                        "APP-Token":"$2a$10$a1HdjpRqHXnjxdWeo1a3feNHeYo8O0Ci5Sl66k/QMEmGEfZ5uJVCm"
+                    }
+                }
+               
+            ).then((result)=>{
+                console.log(result.data)
+            })
+        }
+    </script>
+</body>
+</html>

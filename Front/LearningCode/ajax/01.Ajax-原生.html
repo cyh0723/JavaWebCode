@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" name="b1" id="b1" value="获取数据" onclick="getData()">
+    <div id="d1"></div>
+</body>
+<script>
+    function getData(){
+        // // 1.创建XMLHttpRequest对象
+        // var xmlHttpRequest =new XMLHttpRequest();
+        // // 2.发送请求
+        // xmlHttpRequest.open("GET","https://api.virapi.com/vir_github3922ebh65a57e/demo/visualapi")
+        // xmlHttp.setRequestHeader("Content-type", "application/json;charset=utf-8");
+        // xmlHttp.setRequestHeader("App-Token", "$2a$10$ZEe9fXtVERvXYmP/k0aeAuXQXPKAtsvBXzgh.3f0MEtgM2vkCYOue");   // 设置对应虚拟接口应用请求Token
+        // xmlHttpRequest.send()
+
+        // // 3.获取服务器响应数据
+        // xmlHttpRequest.onreadystatechange=function(){
+        //     if(xmlHttpRequest.readyState==4 && xmlHttpRequest.status==200){
+        //         document.getElementById("b1").innerHTML=xmlHttpRequest.responseText
+        //     }
+        // }
+
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open('GET', 'https://api.virapi.com/vir_github3922ebh65a57e/demo/visualapi', true);  // 指定请求方式&请求地址
+        xmlHttp.setRequestHeader("Content-type", "application/json;charset=utf-8");
+        xmlHttp.setRequestHeader("App-Token", "$2a$10$a1HdjpRqHXnjxdWeo1a3feNHeYo8O0Ci5Sl66k/QMEmGEfZ5uJVCm");   // 设置对应虚拟接口应用请求Token
+        xmlHttp.send();
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                var res = JSON.parse(xmlHttp.responseText);
+                if(res.code == 200){
+            // 接口响应：正确成功请求，若有定义响应data数据，即为：res.data
+                    console.log(res)
+                    document.getElementById("d1").innerHTML=JSON.stringify(xmlHttp.responseText)
+                }else{
+            // 接口响应：失败非法请求
+                    console.log(err)
+                }
+            }
+        };
+
+    }
+</script>
+</html>
